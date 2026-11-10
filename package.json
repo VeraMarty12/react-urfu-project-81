@@ -4,7 +4,7 @@
   "description": "[![hexlet-check](https://github.com/VeraMarty12/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/VeraMarty12/react-urfu-project-81/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
     "lint": "eslint ."
   },
   "repository": {
@@ -23,6 +23,7 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.14.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.2"
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
   }
 }

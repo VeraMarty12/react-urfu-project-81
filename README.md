@@ -1,5 +1,11 @@
 # Генератор форм на Typescript
 
+# HexletCode
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=VeraMarty12_react-urfu-project-81&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=VeraMarty12_react-urfu-project-81)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=VeraMarty12_react-urfu-project-81&metric=coverage)](https://sonarcloud.io/summary/new_code?id=VeraMarty12_react-urfu-project-81)
+[![CI](https://github.com/VeraMarty12/react-urfu-project-81/actions/workflows/ci.yml/badge.svg)](https://github.com/VeraMarty12/react-urfu-project-81/actions/workflows/ci.yml)
+
 [![hexlet-check](https://github.com/VeraMarty12/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/VeraMarty12/react-urfu-project-81/actions)
 
 Библиотека, с помощью которой удобно создавать формы в шаблонах сайтов. Она заметно сокращает код описания формы за счет автоматической обработки ошибок и различных контролов.

@@ -1,39 +1,20 @@
-class Tag {
-  private name: string;
-  private attributes: Record<string, string | number | boolean>;
-  private content: string;
+import Tag from './Tag';
 
-  private static readonly singleTags = new Set([
-    'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
-    'link', 'meta', 'param', 'source', 'track', 'wbr'
-  ]);
+class HexletCode {
+  static formFor(
+    template: Record<string, unknown>,
+    options: { url?: string; method?: string } = {},
+    callback: (f: unknown) => void
+  ): string {
+    const action = options.url || '#';
+    const method = options.method || 'post';
 
-  constructor(
-    name: string, 
-    attributes: Record<string, string | number | boolean> = {}, 
-    content: string = ''
-  ) {
-    this.name = name;
-    this.attributes = attributes;
-    this.content = content;
-  }
+    callback({});
 
-  toString(): string {
-    const attrsArray = Object.entries(this.attributes).map(([key, value]) => {
-      if (typeof value === 'boolean') {
-        return value ? key : null;
-      }
-      return `${key}="${value}"`;
-    }).filter(Boolean);
-
-    const attrsString = attrsArray.length > 0 ? ` ${attrsArray.join(' ')}` : '';
-
-    if (Tag.singleTags.has(this.name)) {
-      return `<${this.name}${attrsString}>`;
-    }
-
-    return `<${this.name}${attrsString}>${this.content}</${this.name}>`;
+    const formTag = new Tag('form', { action, method }, '');
+    
+    return formTag.toString();
   }
 }
 
-export default Tag;
+export default HexletCode;

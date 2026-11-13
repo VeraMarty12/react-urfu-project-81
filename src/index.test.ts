@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import Tag from './index';
+import HexletCode from './index';
+import Tag from './Tag';
 
 describe('Tag', () => {
   it('should render single tag', () => {
@@ -27,7 +28,7 @@ describe('Tag', () => {
     expect(tag.toString()).toBe('<div></div>');
   });
 
-    it('should render single tag with boolean attribute', () => {
+  it('should render single tag with boolean attribute', () => {
     const tag = new Tag('input', { type: 'checkbox', checked: true });
     expect(tag.toString()).toBe('<input type="checkbox" checked>');
   });
@@ -40,5 +41,19 @@ describe('Tag', () => {
   it('should render paired tag with attributes and content', () => {
     const tag = new Tag('div', { class: 'container' }, 'Hello');
     expect(tag.toString()).toBe('<div class="container">Hello</div>');
+  });
+});
+
+describe('HexletCode', () => {
+  it('should render empty form with default attributes', () => {
+    const template = { name: 'rob', job: 'hexlet', gender: 'm' };
+    const form = HexletCode.formFor(template, {}, () => {});
+    expect(form).toBe('<form action="#" method="post"></form>');
+  });
+
+  it('should render empty form with custom url', () => {
+    const template = { name: 'rob', job: 'hexlet', gender: 'm' };
+    const form = HexletCode.formFor(template, { url: '/users' }, () => {});
+    expect(form).toBe('<form action="/users" method="post"></form>');
   });
 });

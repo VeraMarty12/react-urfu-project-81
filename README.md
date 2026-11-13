@@ -17,8 +17,6 @@
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
-
 ```bash
 git clone https://github.com/VeraMarty12/react-urfu-project-81.git
 cd react-urfu-project-81
@@ -26,7 +24,6 @@ cd react-urfu-project-81
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
 
 ```typescript
 import HexletCode from '@hexlet/code';

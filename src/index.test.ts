@@ -62,7 +62,8 @@ describe('HexletCode', () => {
       f.input('name');
       f.input('job', { as: 'textarea' });
     });
-    const expected = '<form action="#" method="post"><input name="name" type="text" value="rob"><textarea cols="20" rows="40" name="job">hexlet</textarea></form>';
+    // ДОБАВЛЕНЫ ЛЕЙБЛЫ
+    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea></form>';
     expect(form).toBe(expected);
   });
 
@@ -71,7 +72,8 @@ describe('HexletCode', () => {
       f.input('name', { class: 'user-input' });
       f.input('job');
     });
-    const expected = '<form action="#" method="post"><input name="name" type="text" value="rob" class="user-input"><input name="job" type="text" value="hexlet"></form>';
+    // ДОБАВЛЕНЫ ЛЕЙБЛЫ
+    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob" class="user-input"><label for="job">Job</label><input name="job" type="text" value="hexlet"></form>';
     expect(form).toBe(expected);
   });
 
@@ -79,7 +81,8 @@ describe('HexletCode', () => {
     const form = HexletCode.formFor(template, {}, (f) => {
       f.input('job', { as: 'textarea', rows: 50, cols: 50 });
     });
-    const expected = '<form action="#" method="post"><textarea cols="50" rows="50" name="job">hexlet</textarea></form>';
+    // ДОБАВЛЕН ЛЕЙБЛ
+    const expected = '<form action="#" method="post"><label for="job">Job</label><textarea cols="50" rows="50" name="job">hexlet</textarea></form>';
     expect(form).toBe(expected);
   });
 
@@ -89,5 +92,24 @@ describe('HexletCode', () => {
         f.input('age');
       });
     }).toThrow("Field 'age' does not exist in the template.");
+  });
+
+  it('should render form with labels and submit button', () => {
+    const form = HexletCode.formFor(template, {}, (f) => {
+      f.input('name');
+      f.input('job');
+      f.submit();
+    });
+    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Save"></form>';
+    expect(form).toBe(expected);
+  });
+
+  it('should render form with custom submit text', () => {
+    const form = HexletCode.formFor(template, {}, (f) => {
+      f.input('job');
+      f.submit('Wow');
+    });
+    const expected = '<form action="#" method="post"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Wow"></form>';
+    expect(form).toBe(expected);
   });
 });

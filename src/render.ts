@@ -6,27 +6,18 @@ export const renderField = (field: FormField): string => {
     return new Tag('input', { type: 'submit', value: field.value }).toString();
   }
 
-  const label = new Tag('label', { for: field.name }, field.label).toString();
+  // Рендерим лейбл с учетом кастомных атрибутов (labelHtml)
+  const labelAttrs = { for: field.name, ...(field.labelHtml || {}) };
+  const label = new Tag('label', labelAttrs, field.label).toString();
   
   let element = '';
-  
   const safeAttributes = field.attributes || {};
 
   if (field.type === 'textarea') {
-    const attrs = { 
-      cols: 20, 
-      rows: 40, 
-      name: field.name, 
-      ...safeAttributes 
-    };
+    const attrs = { cols: 20, rows: 40, name: field.name, ...safeAttributes };
     element = new Tag('textarea', attrs, field.value).toString();
   } else {
-    const attrs = { 
-      name: field.name, 
-      type: 'text', 
-      value: field.value, 
-      ...safeAttributes 
-    };
+    const attrs = { name: field.name, type: 'text', value: field.value, ...safeAttributes };
     element = new Tag('input', attrs).toString();
   }
 

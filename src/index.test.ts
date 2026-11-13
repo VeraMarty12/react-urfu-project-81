@@ -49,12 +49,12 @@ describe('HexletCode', () => {
 
   it('should render empty form with default attributes', () => {
     const form = HexletCode.formFor(template, {}, () => {});
-    expect(form).toBe('<form action="#" method="post"></form>');
+    expect(form).toBe('<form method="post" action="#"></form>');
   });
 
   it('should render empty form with custom url', () => {
     const form = HexletCode.formFor(template, { url: '/users' }, () => {});
-    expect(form).toBe('<form action="/users" method="post"></form>');
+    expect(form).toBe('<form method="post" action="/users"></form>');
   });
 
   it('should render form with input and textarea', () => {
@@ -62,8 +62,7 @@ describe('HexletCode', () => {
       f.input('name');
       f.input('job', { as: 'textarea' });
     });
-    // ДОБАВЛЕНЫ ЛЕЙБЛЫ
-    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea></form>';
+    const expected = '<form method="post" action="#"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea></form>';
     expect(form).toBe(expected);
   });
 
@@ -72,8 +71,7 @@ describe('HexletCode', () => {
       f.input('name', { class: 'user-input' });
       f.input('job');
     });
-    // ДОБАВЛЕНЫ ЛЕЙБЛЫ
-    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob" class="user-input"><label for="job">Job</label><input name="job" type="text" value="hexlet"></form>';
+    const expected = '<form method="post" action="#"><label for="name">Name</label><input name="name" type="text" value="rob" class="user-input"><label for="job">Job</label><input name="job" type="text" value="hexlet"></form>';
     expect(form).toBe(expected);
   });
 
@@ -81,8 +79,7 @@ describe('HexletCode', () => {
     const form = HexletCode.formFor(template, {}, (f) => {
       f.input('job', { as: 'textarea', rows: 50, cols: 50 });
     });
-    // ДОБАВЛЕН ЛЕЙБЛ
-    const expected = '<form action="#" method="post"><label for="job">Job</label><textarea cols="50" rows="50" name="job">hexlet</textarea></form>';
+    const expected = '<form method="post" action="#"><label for="job">Job</label><textarea cols="50" rows="50" name="job">hexlet</textarea></form>';
     expect(form).toBe(expected);
   });
 
@@ -100,7 +97,7 @@ describe('HexletCode', () => {
       f.input('job');
       f.submit();
     });
-    const expected = '<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Save"></form>';
+    const expected = '<form method="post" action="#"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Save"></form>';
     expect(form).toBe(expected);
   });
 
@@ -109,7 +106,7 @@ describe('HexletCode', () => {
       f.input('job');
       f.submit('Wow');
     });
-    const expected = '<form action="#" method="post"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Wow"></form>';
+    const expected = '<form method="post" action="#"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Wow"></form>';
     expect(form).toBe(expected);
   });
 });

@@ -10,17 +10,18 @@ class FormBuilder {
     this.template = template;
   }
 
-  input(name: string, options: { as?: string; [key: string]: unknown } = {}) {
+    input(name: string, options: { as?: string; label?: string; labelHtml?: Record<string, string>; [key: string]: unknown } = {}) {
     if (!(name in this.template)) {
       throw new Error(`Field '${name}' does not exist in the template.`);
     }
-    const { as, ...attributes } = options;
+    const { as, label, labelHtml, ...attributes } = options;
     
     this.fields.push({
       name,
       type: as === 'textarea' ? 'textarea' : 'input',
       value: String(this.template[name]),
-      label: capitalize(name),
+      label: label || capitalize(name), 
+      labelHtml: labelHtml,       
       attributes: attributes as Record<string, string | number | boolean>,
     });
   }

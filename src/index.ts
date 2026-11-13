@@ -15,8 +15,9 @@ class HexletCode {
     callback(builder);
 
     const content = builder.fields.map(renderField).join('');
-
-    const formTag = new Tag('form', { action, method }, content);
+    
+    const formTag = new Tag('form', { method, action }, content);
+    
     return formTag.toString();
   }
 }

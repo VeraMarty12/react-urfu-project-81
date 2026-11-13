@@ -12,11 +12,11 @@
     }
   },
   "scripts": {
-    "test": "vitest run",
-    "test-coverage": "vitest run --coverage",
-    "lint": "oxlint",
-    "format": "oxfmt"
-  },
+  "test": "tsc && vitest run",
+  "test-coverage": "tsc && vitest run --coverage",
+  "lint": "oxlint",
+  "format": "oxfmt"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

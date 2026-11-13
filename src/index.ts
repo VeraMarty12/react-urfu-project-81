@@ -1,5 +1,6 @@
 import Tag from './Tag';
 import FormBuilder from './FormBuilder';
+import { renderField } from './render';
 
 class HexletCode {
   static formFor(
@@ -13,7 +14,9 @@ class HexletCode {
     const builder = new FormBuilder(template);
     callback(builder);
 
-    const formTag = new Tag('form', { action, method }, builder.toString());
+    const content = builder.fields.map(renderField).join('');
+
+    const formTag = new Tag('form', { action, method }, content);
     return formTag.toString();
   }
 }

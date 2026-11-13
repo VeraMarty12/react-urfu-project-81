@@ -4,5 +4,8 @@ lint:
 test:
 	npm run test
 
-coverage:
-	npm run coverage
+test-coverage:
+	npm run test-coverage
+
+format:
+	npm run format

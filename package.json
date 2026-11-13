@@ -1,31 +1,23 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![hexlet-check](https://github.com/VeraMarty12/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/VeraMarty12/react-urfu-project-81/actions)",
-  "main": "index.js",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "vitest run",
-    "coverage": "vitest run --coverage",
-    "lint": "eslint ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VeraMarty12/react-urfu-project-81.git"
+    "test-coverage": "vitest run --coverage",
+    "lint": "oxlint",
+    "format": "oxfmt"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/VeraMarty12/react-urfu-project-81/issues"
-  },
-  "homepage": "https://github.com/VeraMarty12/react-urfu-project-81#readme",
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@vitest/coverage-v8": "^5.1.0",
-    "eslint": "^10.14.0",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.2",
-    "vitest": "^5.1.0"
+    "@vitest/coverage-v8": "^2.1.8",
+    "oxfmt": "^0.1.0",
+    "oxlint": "^0.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   }
 }

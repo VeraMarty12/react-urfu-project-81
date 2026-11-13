@@ -26,4 +26,19 @@ describe('Tag', () => {
     const tag = new Tag('div');
     expect(tag.toString()).toBe('<div></div>');
   });
+
+    it('should render single tag with boolean attribute', () => {
+    const tag = new Tag('input', { type: 'checkbox', checked: true });
+    expect(tag.toString()).toBe('<input type="checkbox" checked>');
+  });
+
+  it('should ignore boolean attribute if false', () => {
+    const tag = new Tag('input', { type: 'checkbox', checked: false });
+    expect(tag.toString()).toBe('<input type="checkbox">');
+  });
+
+  it('should render paired tag with attributes and content', () => {
+    const tag = new Tag('div', { class: 'container' }, 'Hello');
+    expect(tag.toString()).toBe('<div class="container">Hello</div>');
+  });
 });

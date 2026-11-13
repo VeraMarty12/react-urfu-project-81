@@ -28,6 +28,19 @@ cd react-urfu-project-81
 
 <!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
 
+```typescript
+import HexletCode from '@hexlet/code';
+
+const template = { name: 'rob', job: 'hexlet' };
+
+const form = HexletCode.formFor(template, { method: 'post' }, (f) => {
+  f.input('name');
+  f.input('job', { as: 'textarea' });
+});
+
+console.log(form);
+// Выведет:
+// <form action="#" method="post"><input name="name" type="text" value="rob"><textarea cols="20" rows="40" name="job">hexlet</textarea></form>
 ---
 
 <details>
